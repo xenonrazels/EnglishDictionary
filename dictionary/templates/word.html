@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Word Meaning of {{ search }}</title>
+    
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <style>
         main{
             margin:0;
@@ -31,9 +33,20 @@
         }
         section{
             width :50%;
-            height: fit-content;
+            height: max-content;
             margin:2em;
-            
+            margin-bottom: 1em;
+            justify-content: center;
+        }
+        footer{
+            width :50%;
+            height: auto;
+            margin:2em;
+            margin-bottom: 1em;
+            justify-content: center
+        }
+        span{
+            color:red
         }
     </style>
 </head>
@@ -48,10 +61,14 @@
                <input type="submit" value="Search">
            </form>
         <section>
-           <h3><b><u>Meaning:</u></b>{% for  meaning in meanings %} {{ meaning }}, {% endfor %} </h3> 
+           <h3><b><u>Meaning:</u> </b> <i> ({{which}}) </i> {% for  meaning in meanings %}  {{ meaning }}, {% endfor %} </h3> 
            <h3><b><u>Synonym:</u></b> {% for  synonym in synonyms %} {{synonym}}, {% endfor %} </h3>
            <h3><b><u>Antonym:</u></b>{% for antonym in antonyms%} {{ antonym }}, {% endfor %}</h3>
+         
         </section>
+        <footer>
+        <b>This dict is Made with<span class="fa fa-heart"></span> for <i>pydictionary module creators.</i></b>
+        </footer>
     </main>
 </body>
 </html>

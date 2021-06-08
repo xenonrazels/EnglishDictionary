@@ -10,9 +10,15 @@ def word(request):
     meaning=dictionary.meaning(search)
     synonym=dictionary.synonym(search)
     antonym=dictionary.antonym(search)
+    keys=list()
+    for k,i in meaning.items():
+        keys=k
+    print(keys)
+        
     context={
         'search':search,
-        'meanings':meaning['Noun'],
+        'which':keys,
+        'meanings':meaning[k],
         'synonyms':synonym,
         'antonyms':antonym,
     }
